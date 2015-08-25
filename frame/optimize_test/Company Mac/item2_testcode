@@ -1,0 +1,50 @@
+function test1(){
+            var obj = {};
+            obj["hello"] = 1;
+            obj["hella"] = 1;
+            obj["hellb"] = 1;
+            obj["hellc"] = 1;
+            obj["helld"] = 1;
+            obj["helle"] = 1;
+            obj["hellf"] = 1;
+            obj["hellg"] = 1;
+            var time1 = (new Date()).getTime();
+            for(var i=0;i<1000000;++i){
+                var b = obj["hello"];
+            }
+            var time2 = (new Date()).getTime();
+            window.console.log("time1:"+(time2-time1));
+        }
+
+        function test2(){
+            var obj = {};
+            obj.hello = 1;
+            obj.hella = 1;
+            obj.hellb = 1;
+            obj.hellc = 1;
+            obj.helld = 1;
+            obj.helle = 1;
+            obj.hellf = 1;
+            obj.hellg = 1;
+            var time1 = (new Date()).getTime();
+            for(var i=0;i<1000000;++i){
+                var b=obj.hello;
+            }
+            var time2 = (new Date()).getTime();
+            window.console.log("time2:"+(time2-time1));
+        }
+
+        function test3(){
+            var obj = {};
+            obj.hello = 1;
+            var time1 = (new Date()).getTime();
+            for(var i=0;i<1000000;++i){
+                var b=1;
+            }
+            var time2 = (new Date()).getTime();
+            window.console.log("time3:"+(time2-time1));
+        }
+
+        test1();
+        test2();
+        test3();

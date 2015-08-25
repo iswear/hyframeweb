@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript">
+        window.onload = function(){
+            var node1 = document.getElementById("test1");
+            var node2 = document.getElementById("test2");
+            var node1flag = true;
+            var node2flag = true;
+            var node3flag = true;
+            node1.addEventListener("touchstart",function(e){
+                var cure = e?e:window.event;
+                node1flag = !node1flag;
+                cure.changedTouches[0].woqu = "ooo";
+                document.getElementById("test3").innerHTML += "start:"+cure.touches.length+"/in"+"</br>";
+                document.getElementById("test3").innerHTML += "start:"+cure.touches[0].screenX+"/screenX"+"</br>";
+                document.getElementById("test3").innerHTML += "start:"+cure.touches[0].pageX+"/pageX"+"</br>";
+                document.getElementById("test3").innerHTML += "start:"+cure.touches[0].clientX+"/clientX"+"</br>";
+                document.getElementById("test3").innerHTML += "start:"+cure.changedTouches.length+"/in"+"</br>";
+                if(node1flag){
+                    this.style.backgroundColor = "#00FF00";
+                }else{
+                    this.style.backgroundColor = "#FF0000";
+                }
+                e.preventDefault();
+            },false);
+            var i = 1;
+            node1.addEventListener("touchmove",function(e){
+                var cure = e?e:window.event;
+                node3flag = !node3flag;
+                if(i==1){
+                    cure.changedTouches[0].woqu = "1";
+                }
+                i++;
+                document.getElementById("test3").innerHTML += "move:"+cure.touches.length+"/in"+"</br>";
+                document.getElementById("test3").innerHTML += "move:"+cure.changedTouches.length+"/in"+"</br>";
+                e.preventDefault();
+            },false);
+
+            node1.addEventListener("touchend",function(e){
+                var cure = e?e:window.event;
+                document.getElementById("test3").innerHTML += "end:"+cure.touches.length+"/in"+"</br>";
+                document.getElementById("test3").innerHTML += "end:"+cure.changedTouches.length+"/in"+"</br>";
+            },false);
+
+            /*
+            node2.addEventListener("touchstart",function(e){
+                var cure = e?e:window.event;
+                node2flag = !node2flag;
+                if(node2flag){
+                    this.style.backgroundColor = "#00FF00";
+                }else{
+                    this.style.backgroundColor = "#FF0000";
+                }
+                e.preventDefault();
+            },false);
+            */
+        }
+    </script>
+</head>
+<body>
+<div id="test1" style="position:absolute; width:250px; height:250px; left:0px; top:0px; background-color: #0000FF"></div>
+<div id="test3" style="position: absolute; width: 500px; height:40px; left: 0px; top: 300px; background-color: #00FF00"></div>
+</body>
+</html>

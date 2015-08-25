@@ -1,0 +1,56 @@
+一下均是再公司mac mini chrome版本 42.0.2311.152 (64-bit)浏览器上测试结果
+1.动画定时优化
+window.requestAnimationFrame 比 setTimeout以及setInterval效果好
+    setTimeout和setInterval因js单线程的原因  因机器的处理性能差异造成定时差异性大  变化波动大
+    建议所以支持的均采用window.requestAnimationFrame
+    自己笔记本实测：
+        window.setInterval定时16.7秒 平均周期再35+  且变化波动很大
+        window.requestAnimationFrame同样存在一定的波动负担较小时稳定再20左右
+
+2.数据访问优化
+var obj1 = {};
+obj1["hello"] = 1;
+var obj2 = {};
+obj2.hello = 1;
+
+obj1["hello"]与obj2.hello的远离一致，两者访问时间相同，应该都是HASHTABLE，运行时间与属性个数有关
+个数越多访问越慢
+
+3.drawImage 与 drawCanvas 与 putImageData         100次循环
+drawImage 与 drawCancas 耗时基本相同
+putImageData 耗时最长
+
+drawImage       time:1
+drawCanvas      time:3
+putImageData    time:271
+
+4.硬件缩放加速不测试了  设置canvas.width canvas.height  canvas.style.width canvas.style.height
+
+5.数学运算加减乘除运算时间基本相同无需优化
+
+6.三角函数运算优化
+plus        time1:15
+Math.sin    time2:262
+Math.cos    time3:214
+Math.atan2  time4:449
+
+7.状态机改变
+time1:15
+time2:3504
+time3:7170
+time4:1293
+time5:1202
+time6:1207
+time7:585
+
+8.类型转化
+直接赋值        time2:16
+字符串转数字     time3:16
+数字转字符串     time3:178
+
+9.字符串比较
+
+数字比较        time2:13
+字符串比较      time3:14
+附值比较        time3:15
+

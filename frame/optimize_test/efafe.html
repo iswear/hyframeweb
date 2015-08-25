@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<canvas id="1" width="1000" height="1000">
+
+</canvas>
+<canvas id="2" width="1000" height="1000">
+
+</canvas>
+<canvas id="3" width="1000" height="1000">
+
+</canvas>
+<img id="4" src="../tunnel/soft.png" style="position: absolute;" />
+<img id="5" src="../image/role/role1.png" />
+<script type="text/javascript">
+    window.onload = function(){
+        function b(line1_p1x,line1_p1y,line1_p2x,line1_p2y,line2_p1x,line2_p1y,line2_p2x,line2_p2y){
+            var line1_deltax = line1_p1x-line1_p2x;
+            var line1_deltay = line1_p1y-line1_p2y;
+            var line2_deltax = line2_p1x-line2_p2x;
+            var line2_deltay = line2_p1y-line2_p2y;
+            if((line1_deltax*(line2_p1y-line1_p1y)-line1_deltay*(line2_p1x-line1_p1x))*(line1_deltax*(line2_p2y-line1_p1y)-line1_deltay*(line2_p2x-line1_p1x)) < 0
+                    && (line2_deltax*(line1_p1y-line2_p1y)-line2_deltay*(line1_p1x-line2_p1x))*(line2_deltax*(line1_p2y-line2_p1y)-line2_deltay*(line1_p2x-line2_p1x)) < 0){
+                return true;
+            }else{
+                return false;
+            }
+        }
+
+        alert(b(1,1,2,2,3,0,0,3));
+
+//        var cachecanvas = document.createElement("canvas");
+//        cachecanvas.width = 600;
+//        cachecanvas.height = 450;
+//        var cachecontext = cachecanvas.getContext("2d");
+//
+//        var canvas1 = document.getElementById("1");
+//        var context1 = canvas1.getContext("2d");
+//
+//        var canvas2 = document.getElementById("2");
+//        var context2 = canvas2.getContext("2d");
+//
+//        var canvas3 = document.getElementById("3");
+//        var context3 = canvas3.getContext("2d");
+//
+//        var image = document.getElementById("4");
+//        cachecontext.drawImage(image,0,0);
+//        var imagedata = cachecontext.getImageData(0,0,600,450);
+//
+//
+//        function test1(){
+//            var time1 = (new Date()).getTime();
+//            for(var i=0;i<10000000;++i){
+//                var b = 10+10;
+//            }
+//            var time2 = (new Date()).getTime();
+//            window.console.log("time1:"+(time2-time1));
+//        }
+//
+//        function test2(){
+//            var time1 = (new Date()).getTime();
+//            for(var i=0;i<10000000;++i){
+//                context1.translate(1,1);
+//            }
+//            var time2 = (new Date()).getTime();
+//            window.console.log("time2:"+(time2-time1));
+//        }
+//
+//        function test3(){
+//            var time1 = (new Date()).getTime();
+//            for(var i=0;i<10000000;++i){
+//                context2.rotate(1);
+//            }
+//            var time2 = (new Date()).getTime();
+//            window.console.log("time3:"+(time2-time1));
+//        }
+//
+//        function test4(){
+//            var time1 = (new Date()).getTime();
+//            for(var i=0;i<10000000;++i){
+//                context3.scale(0.5,0.5);
+//            }
+//            var time2 = (new Date()).getTime();
+//            window.console.log("time4:"+(time2-time1));
+//        }
+//
+//        function test5(){
+//            var time1 = (new Date()).getTime();
+//            for(var i=0;i<10000000;++i){
+//                context3.save();
+//            }
+//            var time2 = (new Date()).getTime();
+//            window.console.log("time5:"+(time2-time1));
+//        }
+//
+//        function test6(){
+//            var time1 = (new Date()).getTime();
+//            for(var i=0;i<10000000;++i){
+//                context3.restore();
+//            }
+//            var time2 = (new Date()).getTime();
+//            window.console.log("time6:"+(time2-time1));
+//        }
+//
+//        test1();
+//        test2();
+//        test3();
+//        test4();
+//        test5();
+//        test6();
+    }
+
+</script>
+</body>
+</html>

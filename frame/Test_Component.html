@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script type="text/javascript" src="core/HY.js"></script>
+<script type="text/javascript" src="core/Core.js"></script>
+<script type="text/javascript" src="core/Config.js"></script>
+<script type="text/javascript" src="core/Node.js"></script>
+<script type="text/javascript" src="core/Event.js"></script>
+<script type="text/javascript" src="core/Application.js"></script>
+<script type="text/javascript" src="core/Resource.js"></script>
+<script type="text/javascript" src="core/Action.js"></script>
+
+<script type="text/javascript" src="gui/Gui.js"></script>
+<script type="text/javascript" src="gui/View.js"></script>
+<script type="text/javascript" src="gui/Frame.js"></script>
+<script type="text/javascript" src="gui/Label.js"></script>
+<script type="text/javascript" src="gui/Button.js"></script>
+<script type="text/javascript" src="gui/CheckBox.js"></script>
+<script type="text/javascript" src="gui/TextBox.js"></script>
+<script type="text/javascript" src="gui/ScrollView.js"></script>
+<script type="text/javascript" src="gui/ScrollBar.js"></script>
+<script type="text/javascript" src="gui/TreeView.js"></script>
+<script type="text/javascript" src="gui/ImageClip.js"></script>
+<script type="text/javascript" src="gui/Window.js"></script>
+<script type="text/javascript" src="gui/Panel.js"></script>
+<script type="text/javascript" src="gui/ListView.js"></script>
+<script type="text/javascript" src="gui/TimeLineListView.js"></script>
+<script type="text/javascript" src="gui/SplitView.js"></script>
+<script type="text/javascript" src="gui/DropDownButton.js"></script>
+<script type="text/javascript" src="gui/Menu.js"></script>
+
+<script type="text/javascript" src="game/Game.js"></script>
+<script type="text/javascript" src="game/Node.js"></script>
+<script type="text/javascript" src="game/Unit.js"></script>
+<script type="text/javascript" src="game/Assemble.js"></script>
+<script type="text/javascript" src="game/Sprite.js"></script>
+<script type="text/javascript" src="game/Factory.js"></script>
+<script type="text/javascript" src="game/Terrain.js"></script>
+
+<script type="text/javascript" src="tools/Tools.js"></script>
+<script type="text/javascript" src="tools/Unit.js"></script>
+<script type="text/javascript" src="tools/Assemble.js"></script>
+<script type="text/javascript" src="tools/Terrain.js"></script>
+
+<script type="text/javascript">
+    window.onload = function(){
+        var app = new HY.Core.Application({
+            fullScreen:true,
+            autoScale:false
+        });
+//
+//        var splitview = new HY.GUI.SplitView({
+//            x:0,
+//            y:0,
+//            width:600,
+//            height:100,
+//            backgroundColor:'#ffffff'
+//        });
+//
+//
+//        var listview = new HY.GUI.ListView({
+//            backgroundColor:'#FF0000',
+//            x:10,
+//            y:10,
+//            width:100,
+//            height:100,
+//            items:[
+//                {title:'223',contextMenu:[{title:'111'},{title:'222'}]},
+//                {title:'334'}
+//            ]
+//        });
+//        var scrollview = new HY.GUI.ScrollView({
+//            x:10,
+//            y:10,
+//            width:200,
+//            height:100,
+//            backgroundColor:'#ffffff'
+//        });
+//        scrollview.setContentView(listview);
+
+//        var treeview = new HY.GUI.TreeView({
+//            x:10,
+//            y:300,
+//            width:100,
+//            height:200,
+//            rootNode:{
+//                title:'hello',
+//                childNodes:[
+//                    {title:'1',childNodes:[{title:'11'},{title:'12'},{title:'11'},{title:'12'}]},
+//                    {title:'2'}
+//                ]
+//            }
+//        });
+//        scrollview.setContentView(treeview);
+//        splitview.setSplitViews([new HY.GUI.View({backgroundColor:'#00FF00'}),scrollview],[0.2,0.7]);
+//        var scrollview = new HY.GUI.ScrollView({
+//            x:300,
+//            y:10,
+//            width:200,
+//            height:200,
+//            backgroundColor:'#ffffff'
+//        });
+//        var instance2 = new HY.GUI.ListView({
+//            backgroundColor:'#FF0000',
+//            x:0,
+//            y:0,
+//            width:100,
+//            height:100,
+//            items:[
+//                {title:'223',contextMenu:[{title:'111'},{title:'222'}]},
+//                {title:'334'},
+//                {title:'223',contextMenu:[{title:'111'},{title:'222'}]},
+//                {title:'334'},
+//                {title:'223',contextMenu:[{title:'111'},{title:'222'}]},
+//                {title:'334'},
+//                {title:'223',contextMenu:[{title:'111'},{title:'222'}]},
+//                {title:'334'},
+//                {title:'223',contextMenu:[{title:'111'},{title:'222'}]},
+//                {title:'334'}
+//            ]
+//        });
+//
+//
+
+//        var view = new HY.GUI.View({
+//            x:0,
+//            y:0,
+//            width:800,
+//            height:600,
+//            backgroundColor:'#ffff00'
+//        });
+        //view.addChildNodeAtLayer(treeview,0);
+        //view.addChildNodeAtLayer(splitview,0);
+//        view.addChildNodeAtLayer(splitview,0);
+//        view.addChildNodeAtLayer(scrollview,0);
+        /*
+        var instance = new HY.GUI.ScrollView({
+            x:0,y:0,width:200,height:200,backgroundcolor:'#ff0000'
+        });
+        instance.getContentView().setBackgroundColor("#00ff00");
+        instance.setContentWidth(195);
+        instance.setContentHeight(600);
+        */
+
+        var menu = new HY.GUI.Menu({
+            width:400,
+            height:25,
+            backgroundColor:'#FFFFFF',
+            items:[
+                {
+                    title:'文件',
+                    dropItems:[
+                        {title:'打开'},
+                        {title:'保存'}
+                    ]
+                },
+                {
+                    title:'编辑',
+                    dropItems:[
+                        {title:'后退'},
+                        {title:'前进'}
+                    ]
+                }
+            ]
+        });
+        var view = new HY.GUI.View({
+            x:0,
+            y:0,
+            width:800,
+            height:600,
+            backgroundColor:'#ffff00'
+        });
+        view.addChildNodeAtLayer(menu,0);
+        app.run(view);
+    }
+</script>
+</body>
+</html>

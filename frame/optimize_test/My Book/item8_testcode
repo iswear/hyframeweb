@@ -1,0 +1,51 @@
+        var cachecanvas = document.createElement("canvas");
+        cachecanvas.width = 600;
+        cachecanvas.height = 450;
+        var cachecontext = cachecanvas.getContext("2d");
+
+        var canvas1 = document.getElementById("1");
+        var context1 = canvas1.getContext("2d");
+
+        var canvas2 = document.getElementById("2");
+        var context2 = canvas2.getContext("2d");
+
+        var canvas3 = document.getElementById("3");
+        var context3 = canvas3.getContext("2d");
+
+        var image = document.getElementById("4");
+        cachecontext.drawImage(image,0,0);
+        var imagedata = cachecontext.getImageData(0,0,600,450);
+
+
+        function test1(){
+            var time1 = (new Date()).getTime();
+            for(var i=0;i<10000000;++i){
+                var b = "hello";
+            }
+            var time2 = (new Date()).getTime();
+            window.console.log("time2:"+(time2-time1));
+        }
+
+        function test2(){
+
+            var time1 = (new Date()).getTime();
+            for(var i=0;i<10000000;++i){
+                var b = "hello"+235648414;
+            }
+            var time2 = (new Date()).getTime();
+            window.console.log("time3:"+(time2-time1));
+        }
+
+
+        function test3(){
+            var time1 = (new Date()).getTime();
+            for(var i=0;i<10000000;++i){
+                var b = parseInt("56987");
+            }
+            var time2 = (new Date()).getTime();
+            window.console.log("time3:"+(time2-time1));
+        }
+
+        test1();
+        test2();
+        test3();
